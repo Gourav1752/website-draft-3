@@ -1,0 +1,6 @@
+{
+  "name": "Phoenix Financial Services",
+  "description": "PAN India DSA & Financial Services intermediary providing Personal, Business, Home, LAP, and Mortgage loans, Insurance, Mutual Funds, and SIP solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

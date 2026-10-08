@@ -1,0 +1,12 @@
+[
+  {
+    "id": "PHX-1791444208076-768",
+    "name": "Aarav Patel",
+    "phone": "9876543210",
+    "email": "aarav@example.com",
+    "service": "Personal Loan",
+    "amount": "₹5,00,000",
+    "source": "Website",
+    "createdAt": "2026-10-08T07:23:28.076Z"
+  }
+]
