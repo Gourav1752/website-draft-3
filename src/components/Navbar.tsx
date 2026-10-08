@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
+import phoenixLogo from '../assets/images/phoenix_financial_logo_1791453365893.jpg';
 
 interface NavbarProps {
   darkMode: boolean;
   setDarkMode: (val: boolean) => void;
-  onOpenApply: () => void;
+  onOpenApply: (service?: string) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenApply }) => {
@@ -30,6 +31,13 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenApp
     { name: 'Contact', href: '#contact' },
   ];
 
+  const handleLinkClick = (e: React.MouseEvent, link: { name: string; href: string }) => {
+    if (link.name === 'Insurance') {
+      e.preventDefault();
+      onOpenApply('Insurance Solutions');
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
@@ -47,30 +55,14 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenApp
             aria-label="Phoenix Financial Services Home"
           >
             {/* Phoenix Logo Icon */}
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-500 p-0.5 shadow-md shadow-orange-500/20 group-hover:shadow-orange-500/30 transition-all flex items-center justify-center">
-              <div className="w-full h-full bg-white dark:bg-slate-900 rounded-[10px] flex items-center justify-center">
-                <svg
-                  className="w-6 h-6 text-orange-500 transform group-hover:scale-105 transition-transform"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  {/* Stylized Phoenix Wing & Flame */}
-                  <path d="M12 2C8 6 6 10 7 14c.5 2 2 4 5 4s4.5-2 5-4c1-4-1-8-5-12z" fill="url(#phoenix-gradient)" stroke="none" />
-                  <path d="M4 12c2.5-1 5 0 6 2" stroke="currentColor" strokeWidth="2" />
-                  <path d="M20 12c-2.5-1-5 0-6 2" stroke="currentColor" strokeWidth="2" />
-                  <path d="M12 6v8" stroke="#ffffff" strokeWidth="2" />
-                  <defs>
-                    <linearGradient id="phoenix-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#F59E0B" />
-                      <stop offset="50%" stopColor="#EA580C" />
-                      <stop offset="100%" stopColor="#E11D48" />
-                    </linearGradient>
-                  </defs>
-                </svg>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-500 p-0.5 shadow-md shadow-orange-500/20 group-hover:shadow-orange-500/30 transition-all flex items-center justify-center overflow-hidden">
+              <div className="w-full h-full bg-slate-900 rounded-[10px] overflow-hidden flex items-center justify-center">
+                <img
+                  src={phoenixLogo}
+                  alt="Phoenix Financial Services"
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  referrerPolicy="no-referrer"
+                />
               </div>
             </div>
 
@@ -90,7 +82,8 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenApp
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-amber-400 transition-colors whitespace-nowrap"
+                onClick={(e) => handleLinkClick(e, link)}
+                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-orange-600 dark:hover:text-amber-400 transition-colors whitespace-nowrap cursor-pointer"
               >
                 {link.name}
               </a>
@@ -115,7 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenApp
 
             {/* Apply Now Primary CTA */}
             <button
-              onClick={onOpenApply}
+              onClick={() => onOpenApply('Personal Loan')}
               className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-950 bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 hover:from-amber-500 hover:to-orange-500 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer whitespace-nowrap"
             >
               <span>Apply Now</span>
@@ -141,8 +134,11 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenApp
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    handleLinkClick(e, link);
+                  }}
+                  className="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors cursor-pointer"
                 >
                   {link.name}
                 </a>
@@ -151,9 +147,9 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenApp
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    onOpenApply();
+                    onOpenApply('Personal Loan');
                   }}
-                  className="w-full py-2.5 px-4 text-center text-sm font-semibold text-slate-950 bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 rounded-xl shadow-sm"
+                  className="w-full py-2.5 px-4 text-center text-sm font-semibold text-slate-950 bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 rounded-xl shadow-sm cursor-pointer"
                 >
                   Apply Now
                 </button>

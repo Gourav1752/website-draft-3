@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2, Building2, MapPin, Handshake, Users, Shield, TrendingUp, IndianRupee, FileCheck2 } from 'lucide-react';
 import heroImage from '../assets/images/hero_financial_growth_1791443738688.jpg';
+import { PartnerLogoBadge } from './PartnerLogos';
 
 interface HeroProps {
   onOpenApply: (service?: string) => void;
@@ -109,24 +110,32 @@ export const Hero: React.FC<HeroProps> = ({ onOpenApply }) => {
               </div>
 
               {/* Floating Stat Card 1: Multi-Bank Network */}
-              <div className="absolute -bottom-6 -left-4 sm:-left-6 bg-white dark:bg-slate-900 rounded-2xl p-3.5 shadow-xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 max-w-[210px] animate-in slide-in-from-bottom-2 duration-300">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
-                  <Building2 className="w-5 h-5" />
+              <div className="absolute -bottom-6 -left-4 sm:-left-6 bg-white dark:bg-slate-900 rounded-2xl p-3.5 shadow-xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 max-w-[240px] animate-in slide-in-from-bottom-2 duration-300">
+                <div className="flex -space-x-2 shrink-0">
+                  <div className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 overflow-hidden shadow-xs">
+                    <PartnerLogoBadge code="HDFC" className="w-full h-full" />
+                  </div>
+                  <div className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 overflow-hidden shadow-xs">
+                    <PartnerLogoBadge code="SBI" className="w-full h-full" />
+                  </div>
+                  <div className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 overflow-hidden shadow-xs">
+                    <PartnerLogoBadge code="TATA" className="w-full h-full" />
+                  </div>
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-slate-900 dark:text-white">Leading Banks</div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400">& NBFC Partners</div>
+                  <div className="text-xs font-bold text-slate-900 dark:text-white">Partnered Banks</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400">SBI · HDFC · Tata & More</div>
                 </div>
               </div>
 
               {/* Floating Stat Card 2: Transparent Processing */}
-              <div className="absolute -top-5 -right-3 sm:-right-5 bg-white dark:bg-slate-900 rounded-2xl p-3.5 shadow-xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 max-w-[200px] animate-in slide-in-from-top-2 duration-300">
+              <div className="absolute -top-5 -right-3 sm:-right-5 bg-white dark:bg-slate-900 rounded-2xl p-3.5 shadow-xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 max-w-[210px] animate-in slide-in-from-top-2 duration-300">
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <FileCheck2 className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900 dark:text-white">Fast Processing</div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400">Dedicated Support</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400">Multi-Bank Comparisons</div>
                 </div>
               </div>
             </div>

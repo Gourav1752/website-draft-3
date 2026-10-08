@@ -105,6 +105,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             return (
               <div
                 key={idx}
+                id={item.serviceKey === 'Insurance Solutions' ? 'insurance' : undefined}
                 className="group relative p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-amber-400/60 dark:hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>

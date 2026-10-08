@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import phoenixLogo from '../assets/images/phoenix_financial_logo_1791453365893.jpg';
 
 interface FooterProps {
   onSelectService: (service: string) => void;
@@ -46,9 +47,14 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenPolicy })
           {/* Column 1: Company Profile (4 Cols) */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-500 p-0.5 shadow-md flex items-center justify-center">
-                <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-orange-400 font-black text-xl">
-                  P
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-500 p-0.5 shadow-md flex items-center justify-center overflow-hidden">
+                <div className="w-full h-full bg-slate-900 rounded-[10px] overflow-hidden flex items-center justify-center">
+                  <img
+                    src={phoenixLogo}
+                    alt="Phoenix Financial Services"
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
               </div>
               <span className="text-xl font-bold tracking-tight text-white font-display">
@@ -59,6 +65,21 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenPolicy })
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
               Phoenix Financial Services is a premier Direct Selling Associate (DSA) company associated with multiple Banks, NBFCs, and Housing Finance Companies across India. Providing end-to-end financial solutions for individuals, professionals, and MSMEs.
             </p>
+
+            {/* Direct Contact Details */}
+            <div className="pt-1 space-y-1.5 text-xs text-slate-400">
+              <p className="flex items-center gap-1.5">
+                <span className="text-amber-400 font-semibold">Phone:</span>
+                <a href="tel:+918670843143" className="hover:text-white transition-colors">+91 86708 43143</a>
+              </p>
+              <p className="flex items-center gap-1.5">
+                <span className="text-amber-400 font-semibold">Email:</span>
+                <a href="mailto:servicesphoenixfinancial@gmail.com" className="hover:text-white transition-colors break-all">servicesphoenixfinancial@gmail.com</a>
+              </p>
+              <p className="text-[11px] text-slate-400 leading-normal pt-1">
+                <span className="text-amber-400 font-semibold">Office:</span> 10th Floor, 10ES2, EAST TOWER, Mani Casadona, International Financial Hub(CBD), New Town, Chakpachuria, West Bengal 700160
+              </p>
+            </div>
 
             {/* Social Media Placeholders */}
             <div className="pt-2 flex items-center gap-3">
@@ -140,9 +161,22 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenPolicy })
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© 2026 Phoenix Financial Services. All Rights Reserved.</p>
-          <p className="text-slate-500">
-            PAN India DSA · Partnered with Leading Indian Banks & NBFCs
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 text-slate-500">
+            <span>PAN India DSA · Partnered with Leading Indian Banks & NBFCs</span>
+            <button
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(new CustomEvent('phoenix_toggle_admin'));
+                  const partnersEl = document.getElementById('partners');
+                  if (partnersEl) partnersEl.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              title="Toggle Partner Logo Admin Tool (or press Cmd+Shift+E / Ctrl+Shift+E)"
+              className="text-slate-600 dark:text-slate-500 hover:text-amber-500 dark:hover:text-amber-400 transition-colors text-[11px] underline underline-offset-2 cursor-pointer"
+            >
+              Partner Admin Tool
+            </button>
+          </div>
         </div>
 
       </div>

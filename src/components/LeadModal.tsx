@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, ShieldCheck, ArrowRight, Loader2, Phone, Mail, User, Briefcase } from 'lucide-react';
+import { X, CheckCircle2, ShieldCheck, ArrowRight, Loader2, Phone, Mail, User, Briefcase, ChevronDown } from 'lucide-react';
 import { submitLead } from '../lib/api';
 
 interface LeadModalProps {
@@ -165,7 +165,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                     Full Name *
                   </label>
                   <div className="relative">
-                    <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                    <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                     <input
                       type="text"
                       value={name}
@@ -174,7 +174,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                         if (errors.name) setErrors({ ...errors, name: '' });
                       }}
                       placeholder="e.g. Rahul Sharma"
-                      className={`w-full pl-10 pr-4 py-2.5 rounded-xl border bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 transition-all ${
+                      className={`w-full pl-11 pr-4 py-2.5 rounded-xl border bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 transition-all ${
                         errors.name ? 'border-rose-400 focus:ring-rose-500' : 'border-slate-200 dark:border-slate-700'
                       }`}
                     />
@@ -192,7 +192,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                       +91
                     </div>
                     <div className="relative flex-1">
-                      <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
+                      <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                       <input
                         type="tel"
                         maxLength={10}
@@ -217,7 +217,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                     Email Address *
                   </label>
                   <div className="relative">
-                    <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                    <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                     <input
                       type="email"
                       value={email}
@@ -226,7 +226,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                         if (errors.email) setErrors({ ...errors, email: '' });
                       }}
                       placeholder="rahul.sharma@example.com"
-                      className={`w-full pl-10 pr-4 py-2.5 rounded-xl border bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 transition-all ${
+                      className={`w-full pl-11 pr-4 py-2.5 rounded-xl border bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 transition-all ${
                         errors.email ? 'border-rose-400 focus:ring-rose-500' : 'border-slate-200 dark:border-slate-700'
                       }`}
                     />
@@ -240,11 +240,11 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                     Service Required
                   </label>
                   <div className="relative">
-                    <Briefcase className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                    <Briefcase className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none z-10" />
                     <select
                       value={service}
                       onChange={(e) => setService(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 transition-all"
+                      className="w-full pl-11 pr-10 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-white text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 transition-all appearance-none cursor-pointer"
                     >
                       <option value="Personal Loan">Personal Loan</option>
                       <option value="Business Loan">Business Loan</option>
@@ -261,6 +261,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                       <option value="Financial Advisory">Financial Advisory</option>
                       <option value="Business Advisory">Business Advisory</option>
                     </select>
+                    <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none z-10" />
                   </div>
                 </div>
 

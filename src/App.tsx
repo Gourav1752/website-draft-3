@@ -68,7 +68,7 @@ export default function App() {
       <Navbar
         darkMode={darkMode}
         setDarkMode={setDarkMode}
-        onOpenApply={() => handleOpenApply('Personal Loan')}
+        onOpenApply={(srv) => handleOpenApply(srv || 'Personal Loan')}
       />
 
       {/* Main Content Flow */}

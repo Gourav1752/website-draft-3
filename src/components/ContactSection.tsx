@@ -109,10 +109,13 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-xs font-semibold uppercase text-slate-400">Phone Support</div>
-                  <div className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
-                    +91 98000 00000 <span className="text-xs font-normal text-slate-400">[Placeholder]</span>
-                  </div>
-                  <div className="text-xs text-slate-500 mt-0.5">Toll-free / Direct Callback Line</div>
+                  <a
+                    href="tel:+918670843143"
+                    className="text-sm font-bold text-slate-900 dark:text-white mt-0.5 hover:text-orange-500 transition-colors block"
+                  >
+                    +91 86708 43143
+                  </a>
+                  <div className="text-xs text-slate-500 mt-0.5">Direct Helpdesk & Callback Line</div>
                 </div>
               </div>
 
@@ -123,9 +126,12 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-xs font-semibold uppercase text-slate-400">Email Inquiries</div>
-                  <div className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
-                    support@phoenixfinancial.example.com <span className="text-xs font-normal text-slate-400">[Placeholder]</span>
-                  </div>
+                  <a
+                    href="mailto:servicesphoenixfinancial@gmail.com"
+                    className="text-sm font-bold text-slate-900 dark:text-white mt-0.5 hover:text-orange-500 transition-colors block break-all"
+                  >
+                    servicesphoenixfinancial@gmail.com
+                  </a>
                   <div className="text-xs text-slate-500 mt-0.5">Response within 24 business hours</div>
                 </div>
               </div>
@@ -137,10 +143,10 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-xs font-semibold uppercase text-slate-400">Registered Office</div>
-                  <div className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
-                    Financial District, Central Plaza, India <span className="text-xs font-normal text-slate-400">[Placeholder]</span>
+                  <div className="text-sm font-bold text-slate-900 dark:text-white mt-0.5 leading-relaxed">
+                    10th Floor, 10ES2, EAST TOWER, Mani Casadona, International Financial Hub(CBD), New Town, Chakpachuria, West Bengal 700160
                   </div>
-                  <div className="text-xs text-slate-500 mt-0.5">Doorstep pickup available across all major cities</div>
+                  <div className="text-xs text-slate-500 mt-1">PAN India DSA Assistance · Doorstep Document Pickup</div>
                 </div>
               </div>
 
@@ -161,13 +167,13 @@ export const ContactSection: React.FC = () => {
               {/* WhatsApp Quick CTA */}
               <div className="pt-2">
                 <a
-                  href="https://wa.me/919999999999?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20loan%20solutions%20with%20Phoenix%20Financial%20Services."
+                  href="https://wa.me/918670843143?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20financial%20services%20with%20Phoenix%20Financial%20Services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors shadow-sm"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Chat on WhatsApp [Placeholder Channel]</span>
+                  <span>Chat on WhatsApp (+91 86708 43143)</span>
                 </a>
               </div>
             </div>
